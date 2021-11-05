@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
-    this.state = {
+    this.state= {
       newItem: "",
-      list : [],
-      // list : () => {
-      //   const Localdata = localStorage.getItem('Item');
-      //   return Localdata? JSON.parse(Localdata) : [];
-      // },
+      list: [],
       id:1
     }
   }
@@ -37,7 +33,7 @@ class App extends Component {
     var id=this.state.id;
     id=id+1;
 
-    localStorage.setItem('Item', JSON.stringify(list));
+    localStorage.setItem('Item', newItem);
 
     //Update state with new list and reset newItem input
     this.setState({
@@ -59,33 +55,21 @@ class App extends Component {
     this.setState({list: updatedList});
   }
 
-  enterPressed(event) {
-    //Listening for a keypress event
-    var code = event.keyCode || event.which;
-    if(code === 13) { //13 is the enter keycode
-        //Do stuff in here
-        document.getElementById("myBtn").click();
-        //alert('Enter pressed');
-    } 
-  }
-
   render() {
     return (
       <div className="App">
-        Hello World!!
+        Hello World!!!
+        
         <div>
           Add an Item...
           <br/>
           <input 
-            id = "myInput"
             type = "text"
             placeholder = "Type your item here..."
             value = {this.state.newItem}
-            onChange = {e  => this.updateItem("newItem", e.target.value)}
-            onKeyPress = {this.enterPressed.bind(this)}
+            onChange = {e => this.updateItem("newItem", e.target.value)}
           />
           <button 
-            id="myBtn"
             onClick = {() => this.addItem()}
           >
             Add
