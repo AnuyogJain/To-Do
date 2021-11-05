@@ -7,10 +7,6 @@ class App extends Component {
     this.state = {
       newItem: "",
       list : [],
-      // list : () => {
-      //   const Localdata = localStorage.getItem('Item');
-      //   return Localdata? JSON.parse(Localdata) : [];
-      // },
       id:1
     }
   }
