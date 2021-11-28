@@ -67,9 +67,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        Hello World!!
-        <div>
+      <div className="container">
+        <div className="app-title"><h1>My List</h1></div>
+        <div style={{
+            padding: 30,
+            textAlign: "left",
+            maxWidth: 500,
+            margin: "auto"
+          }}>
           Add an Item...
           <br/>
           <input 
@@ -82,17 +87,19 @@ class App extends Component {
           />
           <button 
             id="myBtn"
+            className="btn btn-floating"
             onClick = {() => this.addItem()}
           >
             Add
           </button>
           <br />
-          <ul>
+          <ul className="list">
             {this.state.list.map(item => {
               return(
                 <li key = {item.id}>
                   {item.value}
                   <button
+                    className="add-btn"
                     onClick = {() => this.deleteItem(item.id)}
                   >X</button>
                 </li>
